@@ -45,7 +45,7 @@ sudo systemctl status mongod
 
 # 6.5-repalace your runing mongodb dump into new mongo.
 ```
-sudo mongorestore --db ticket2 --verbose ./usr/local/src/dbackups/tickets/
+sudo mongorestore --db <dbname> --verbose ./usr/local/src/dbackups/<dbname>/
 ```
 # 7-To verify OpenSSL is installed on your system, run the following command:
 ```
