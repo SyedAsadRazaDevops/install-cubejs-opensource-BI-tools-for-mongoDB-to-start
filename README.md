@@ -65,8 +65,9 @@ sudo install -m755 ./mongodb-bi-linux-x86_64-ubuntu2004-v2.14.4/bin/mongo* /usr/
 ```
 # 11-To help you get started
 ```
->BI Connector requires a configuration file with the mongosqld.systemLog.path setting specified when running as a system service. Using your preferred text editor, create a mongosqld.conf file. 
->see Configuration File. For example:
+BI Connector requires a configuration file with the mongosqld.systemLog.path setting specified when running as a system service. Using your preferred text editor, create a mongosqld.conf file. 
+
+see Configuration File. For example:
 ```
 systemLog:
   path: '/logs/mongosqld.log'
