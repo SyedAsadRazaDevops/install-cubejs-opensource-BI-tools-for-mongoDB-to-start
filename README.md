@@ -113,6 +113,34 @@ CUBEJS_DB_NAME=ticket2
 CUBEJS_DB_USER=
 CUBEJS_DB_PASS=
 ```
-  
+# 17-install docker-compose for deploy the Cubejs
+
+On Linux, you can download the Docker Compose binary from the Compose repository release page on GitHub. Follow the instructions from the link, which involve running the curl command in your terminal to download the binaries. These step-by-step instructions are also included below.
+
+>Run this command to download the current stable release of Docker Compose:
+
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+>Apply executable permissions to the binary:
+
+```
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+>Test the installation.
+
+```
+docker-compose --version
+```
+
+# 18-To Deploy on Docker run this command:
+
+```
+docker-compose up
+```
+
+
+
 thank you ! you are ready to go!
   
