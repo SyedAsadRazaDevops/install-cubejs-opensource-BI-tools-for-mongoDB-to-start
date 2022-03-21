@@ -98,6 +98,7 @@ After you install and configure the BI Connector, you can use ODBC and JDBC driv
 >MySQL Client
 
 # 15-install cubejs in ubuntu 
+**NOTE:** if you pull from github and you already build it,**then skip it.**
 ```
 npm install -g cubejs-cli
 ```
