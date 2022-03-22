@@ -114,7 +114,45 @@ CUBEJS_DB_NAME=ticket2
 CUBEJS_DB_USER=
 CUBEJS_DB_PASS=
 ```
-# 17-install docker-compose for deploy the Cubejs
+# 17-Install Docker Engine on Ubuntu
+
+Install using the repository
+
+Before you install Docker Engine for the first time on a new host machine, you need to set up the Docker repository. Afterward, you can install and update Docker from the repository.
+
+**Set up the repository**
+```
+ sudo apt-get update
+ ```
+ ```
+ sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release```
+```
+**Add Docker’s official GPG key:**
+```
+ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+ ```
+**Use the following command to set up the stable repository. To add the nightly or test repository, add the word nightly or test (or both) after the word stable in the commands below.**
+ ```
+ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  ```
+**Install Docker Engine**
+```
+ sudo apt-get update
+ ```
+ ```
+ sudo apt-get install docker-ce docker-ce-cli containerd.io  
+```
+**Verify that Docker Engine is installed correctly by running the hello-world image.**
+```
+ sudo docker run hello-world
+```
+# 18-install docker-compose for deploy the Cubejs
 
 On Linux, you can download the Docker Compose binary from the Compose repository release page on GitHub. Follow the instructions from the link, which involve running the curl command in your terminal to download the binaries. These step-by-step instructions are also included below.
 
@@ -134,8 +172,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 docker-compose --version
 ```
-
-# 18-To Deploy on Docker run this command:
+# 19-install mysql
+# 20-To Deploy on Docker run this command:
 
 ```
 docker-compose up
