@@ -173,13 +173,59 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
 # 19-install mysql
-# 20-To Deploy on Docker run this command:
+
+```
+```
+
+# 20-
+
+```
+mysql --protocol=tcp --port=3307
+```
+# 21-To Deploy on Docker run this command:
 
 ```
 docker-compose up
 ```
 
 
+![MicrosoftTeams-image](https://user-images.githubusercontent.com/71556060/159915412-3fd724a0-0f3c-4870-95c4-0a4a3ef5c9ac.png)
 
-thank you ! you are ready to go!
-  
+**thank you ! you are ready to go!**
+
+_____________________________________________________________________________________________________________________
+
+ **issues-in-deplyments**
+
+# 1-ERROR:while loading db schema error: unable to connect to foreign data source: mongodb at promiseconnection.
+**this case is occure then your mongodb is not in runing ,you can check the status by this command**:
+```
+sudo service mongod status
+```
+**As a solution assing the permission by runing the commands**
+
+```
+sudo chown -R mongodb:mongodb /var/lib/mongodb
+```
+```
+sudo chown mongodb:mongodb /tmp/mongodb-27017.sock    
+```
+```
+sudo service mongod restart
+```
+```
+sudo systemctl enable mongod.service
+```
+# 2-ERROR:this port is in used.
+
+```
+sudo netstat -pna | grep 3307
+```
+# 3-ERROR: Performing query: scheduler-c4a683d1-9ab1-4fa3-9e7c-bd9067c597d3 
+**Error while querying: scheduler-c4a683d1-9ab1-4fa3-9e7c-bd9067c597d3 (5002ms)
+Error querying db: scheduler-5fbbcfc4-68f4-4f7a-bb61-5a9ac1876989 
+Refresh Scheduler Error: scheduler-5fbbcfc4-68f4-4f7a-bb61-5a9ac1876989**
+
+
+
+# 4-ERROR: 
