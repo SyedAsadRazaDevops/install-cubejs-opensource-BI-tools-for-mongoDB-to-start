@@ -216,7 +216,7 @@ sudo service mongod restart
 ```
 sudo systemctl enable mongod.service
 ```
-# 2-ERROR:this port is in used.
+# 2-ERROR: this port is already in used.
 
 ```
 sudo netstat -pna | grep 3307
@@ -228,4 +228,5 @@ Refresh Scheduler Error: scheduler-5fbbcfc4-68f4-4f7a-bb61-5a9ac1876989**
 
 
 
-# 4-ERROR: 
+# 4-ERROR: connect ECONNREFUSED 127.0.0.1:3307
+cube_1  |     at QueryQueue.parseResult (/cube/node_modules/@cubejs-backend/query-orchestrator/src/orchestrator/QueryQueue.js:138:13)
