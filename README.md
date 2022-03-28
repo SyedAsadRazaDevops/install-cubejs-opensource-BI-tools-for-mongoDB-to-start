@@ -110,7 +110,7 @@ npx cubejs-cli create CubeBI -d mongobi
 CUBEJS_DB_TYPE=mongobi
 CUBEJS_DB_HOST=127.0.0.1
 CUBEJS_DB_PORT=3307 
-CUBEJS_DB_NAME=ticket2
+CUBEJS_DB_NAME=mydbname
 CUBEJS_DB_USER=
 CUBEJS_DB_PASS=
 ```
