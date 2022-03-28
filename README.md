@@ -341,5 +341,12 @@ ________________________________________________________________________________
 
 # some usefull links:
 
-1- https://www.cloudsavvyit.com/14114/how-to-connect-to-localhost-within-a-docker-container/
-2- 
+1- **https://www.cloudsavvyit.com/14114/how-to-connect-to-localhost-within-a-docker-container/**
+2- **https://www.mongodb.com/docs/bi-connector/current/launch/**
+3- https://computingforgeeks.com/how-to-install-mysql-8-on-ubuntu/
+4- **https://stackoverflow.com/questions/48092353/failed-to-start-mongod-service-unit-mongod-service-not-found**
+5- https://stackoverflow.com/questions/54025995/tableau-and-mongodb-warning-access-control-is-not-enabled-for-mongosqld
+6- **https://stackoverflow.com/questions/41615574/mongodb-server-has-startup-warnings-access-control-is-not-enabled-for-the-dat**
+7- https://real-time-dashboard.cube.dev/cube-js-api-with-mongo-db
+8- **https://docs.mongodb.com/bi-connector/current/launch/#std-label-start-msqld-cli**
+9- **https://devhints.io/docker-compose**
