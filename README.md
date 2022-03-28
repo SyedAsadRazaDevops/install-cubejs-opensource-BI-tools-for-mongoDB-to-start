@@ -173,9 +173,104 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
 # 19-install mysql
+**Step 1: Add MySQL APT repository in Ubuntu20.04|22.04**
+```
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.20-1_all.deb
+```
+Once downloaded, install the repository by running the command below:
+```
+sudo dpkg -i mysql-apt-config_0.8.20-1_all.deb
+```
+On Ubuntu 22.04, choose **MySQL ubuntu focal** if there warned detected OS is not supported.
+
+![image](https://user-images.githubusercontent.com/71556060/160337009-bd3b28df-e96c-41b9-8683-3789ecdf1cce.png)
+
+he next prompt shows MySQL 8.0 chosen by **default**. Choose the first option and **click OK**
+
+![image](https://user-images.githubusercontent.com/71556060/160337039-f44a0926-0626-4b0e-b794-f688a8e4d7f1.png)
+
+In the next prompt, select **MySQL 8.0 ** server and **click OK**.
+
+![image](https://user-images.githubusercontent.com/71556060/160337096-9103a04a-4ae0-46ee-bd41-7ab1d1f3b963.png)
+
+The next prompt selects MySQL8 by default. Choose the last option **Ok** and **click OK**.
+
+**Step 2: Update MySQL Repository on Ubuntu20.04|22.04**
+```
+sudo apt update
+```
+Now search for **MySQL 8.0 using apt cache** as shown below:
+```
+sudo apt-cache policy mysql-server
+```
+**Step 3: Install MySQL 8.0 on Ubuntu20.04|22.04**
 
 ```
+sudo apt install mysql-client mysql-community-server mysql-server
 ```
+>Hit the y key to start the installation:
+
+Set a strong password for root MySQL user
+
+![image](https://user-images.githubusercontent.com/71556060/160337846-98c5a040-b331-4327-b9ba-df0336728db7.png)
+
+Confirm root password by typing it again.
+
+![image](https://user-images.githubusercontent.com/71556060/160337936-9dd32b7d-0051-48ff-bc41-93ee38e2c792.png)
+
+Set default authentication plugin. Use Strong Password Encryption mechanism.
+
+![image](https://user-images.githubusercontent.com/71556060/160338209-4ecfb2f3-03a9-499c-9433-065be5257a36.png)
+
+**Step 4: Secure MySQL Installationon Ubuntu20.04|22.04**
+
+Run the command
+```
+sudo mysql_secure_installation
+```
+**Press Enter**. When prompted for **password**, provide the **root password set** above
+```
+Enter current password for root (enter for none): <Enter password>
+VALIDATE PASSWORD PLUGIN can be used to test passwords 
+and improve security. It checks the strength of password 
+and allows the users to set only those passwords which are 
+secure enough. Would you like to setup VALIDATE PASSWORD plugin? 
+
+Press y|Y for Yes, any other key for No: **Y** 
+
+There are three levels of password validation policy: 
+
+LOW    Length >= 8 
+MEDIUM Length >= 8, numeric, mixed case, and special characters 
+STRONG Length >= 8, numeric, mixed case, special characters and dictionary                  file 
+
+Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: **1**
+Using existing password for root. 
+
+Estimated strength of the password: 25  
+Change the password for root ? ((Press y|Y for Yes, any other key for No) : n
+
+
+Remove anonymous users? [Y/n] **Y** 
+Disallow root login remotely? [Y/n] **Y **
+Remove test database and access to it? [Y/n]** Y** 
+Reload privilege tables now? [Y/n] **Y **
+
+```
+**Step 5) Validate MySQL 8.0 Installation on Ubuntu 20.04|22.04**
+
+Connect to MySQL to check MySQL installed version. To connect to **MySQL**, run the below command:
+```
+mysql
+```
+>Provide the root password set above and once connected.
+
+**To restart mysql**
+```
+sudo systemctl restart mysql
+```
+
+
 
 # 20-
 
@@ -230,3 +325,21 @@ Refresh Scheduler Error: scheduler-5fbbcfc4-68f4-4f7a-bb61-5a9ac1876989**
 
 # 4-ERROR: connect ECONNREFUSED 127.0.0.1:3307
 cube_1  |     at QueryQueue.parseResult (/cube/node_modules/@cubejs-backend/query-orchestrator/src/orchestrator/QueryQueue.js:138:13)
+
+**To attach mongodb to mongosql**
+1) find "mongodrdl" in my local system it is in "/usr/local/bin"
+2) run this command:
+```
+mongodrdl --uri=mongodb://127.0.0.1:27017/testone
+```
+>testone is db name
+3) restart mongosql 
+```
+sudo service mongosql restart
+```
+________________________________________________________________________________________________________________________________________
+
+# some usefull links:
+
+1- https://www.cloudsavvyit.com/14114/how-to-connect-to-localhost-within-a-docker-container/
+2- 
