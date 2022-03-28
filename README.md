@@ -282,8 +282,29 @@ mysql --protocol=tcp --port=3307
 ```
 docker-compose up
 ```
+# 22-change the docker-compose.file 
+in my case ,we are deplying mongo without docker container, run it simplay on server.
+So the docker compose yaml did not access the mongo ,because it run on **server/localhost:27017**
+>so,in this case you need to change the docker-compose file.
+need to add "**network**" = "**host**"
+```
+version: '2.2'
 
-
+services:
+  cube:
+    image: cubejs/cube:v0.29.28
+    ports:
+      # It's better to use random port binding for 4000/3000 ports
+      # without it you will not able to start multiple projects inside docker
+      - 3339:4000  # Cube.js API and Developer Playground
+      - 3001:3000  # Dashboard app, if created
+    env_file: .env
+    volumes:
+      - .:/cube/conf
+      # We ignore Cube.js deps, because they are built-in inside the official Docker image
+      - .empty:/cube/conf/node_modules/@cubejs-backend/
+    network_mode: host
+```
 ![MicrosoftTeams-image](https://user-images.githubusercontent.com/71556060/159915412-3fd724a0-0f3c-4870-95c4-0a4a3ef5c9ac.png)
 
 **thank you ! you are ready to go!**
