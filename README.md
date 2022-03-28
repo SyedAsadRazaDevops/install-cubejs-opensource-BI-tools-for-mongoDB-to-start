@@ -1,5 +1,5 @@
 
-install-cubejs-opensource-BI-tools-for-mongoDB-to-start
+install-cubejs-opensource-BI-tools-for-scratch-with-mongoDB
 
 # Install MongoDB Community Edition on Ubuntu
 # 1-Import the public key used by the package management system-
