@@ -283,8 +283,10 @@ mysql --protocol=tcp --port=3307
 docker-compose up
 ```
 # 22-change the docker-compose.file 
-in my case ,we are deplying mongo without docker container, run it simplay on server.
+
+This case ,we are deplying mongo without docker container, run it simplay on server.
 So the docker compose yaml did not access the mongo ,because it run on **server/localhost:27017**
+
 >so,in this case you need to change the docker-compose file.
 need to add "**network**" = "**host**"
 ```
@@ -294,20 +296,19 @@ services:
   cube:
     image: cubejs/cube:v0.29.28
     ports:
-      # It's better to use random port binding for 4000/3000 ports
-      # without it you will not able to start multiple projects inside docker
-      - 3339:4000  # Cube.js API and Developer Playground
-      - 3001:3000  # Dashboard app, if created
+      - 4000:4000 
+      - 3000:3000  
     env_file: .env
     volumes:
       - .:/cube/conf
-      # We ignore Cube.js deps, because they are built-in inside the official Docker image
       - .empty:/cube/conf/node_modules/@cubejs-backend/
     network_mode: host
 ```
+**thank you ! you are ready to go!**
+
 ![MicrosoftTeams-image](https://user-images.githubusercontent.com/71556060/159915412-3fd724a0-0f3c-4870-95c4-0a4a3ef5c9ac.png)
 
-**thank you ! you are ready to go!**
+
 
 _____________________________________________________________________________________________________________________
 
@@ -363,11 +364,19 @@ ________________________________________________________________________________
 # some usefull links:
 
 1- **https://www.cloudsavvyit.com/14114/how-to-connect-to-localhost-within-a-docker-container/**
+
 2- **https://www.mongodb.com/docs/bi-connector/current/launch/**
+
 3- https://computingforgeeks.com/how-to-install-mysql-8-on-ubuntu/
+
 4- **https://stackoverflow.com/questions/48092353/failed-to-start-mongod-service-unit-mongod-service-not-found**
+
 5- https://stackoverflow.com/questions/54025995/tableau-and-mongodb-warning-access-control-is-not-enabled-for-mongosqld
+
 6- **https://stackoverflow.com/questions/41615574/mongodb-server-has-startup-warnings-access-control-is-not-enabled-for-the-dat**
+
 7- https://real-time-dashboard.cube.dev/cube-js-api-with-mongo-db
+
 8- **https://docs.mongodb.com/bi-connector/current/launch/#std-label-start-msqld-cli**
+
 9- **https://devhints.io/docker-compose**
